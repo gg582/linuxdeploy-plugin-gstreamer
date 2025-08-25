@@ -6,6 +6,7 @@ set -e
 if [ "$DEBUG" != "" ]; then
     set -x
 fi
+export STRIP=/bin/true
 
 script=$(readlink -f "$0")
 
