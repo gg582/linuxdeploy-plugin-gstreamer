@@ -103,7 +103,7 @@ for i in "$plugins_dir"/*; do
     cp "$i" "$plugins_target_dir"
 done
 
-"$LINUXDEPLOY" --appdir "$APPDIR" --no-strip
+STRIP=/bin/true "$LINUXDEPLOY" --appdir "$APPDIR"
 
 for i in "$plugins_target_dir"/*; do
     [ -d "$i" ] && continue
