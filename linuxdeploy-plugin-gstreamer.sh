@@ -6,8 +6,6 @@ set -e
 if [ "$DEBUG" != "" ]; then
     set -x
 fi
-export STRIP=/bin/true
-
 script=$(readlink -f "$0")
 
 show_usage() {
@@ -105,7 +103,7 @@ for i in "$plugins_dir"/*; do
     cp "$i" "$plugins_target_dir"
 done
 
-"$LINUXDEPLOY" --appdir "$APPDIR"
+"$LINUXDEPLOY" --appdir "$APPDIR" --no-strip
 
 for i in "$plugins_target_dir"/*; do
     [ -d "$i" ] && continue
